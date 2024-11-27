@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./AdvertisementBanner.css";
 
 const AdvertisementBanner = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const bannerRef = useRef(null);
+
+  // Intersection Observer setup
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setIsVisible(true); // Set the visibility state to true
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the component is visible
+    );
+
+    if (bannerRef.current) {
+      observer.observe(bannerRef.current);
+    }
+
+    // Cleanup the observer on component unmount
+    return () => {
+      if (bannerRef.current) {
+        observer.unobserve(bannerRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="advertisement-banner">
+    <div
+      className={`advertisement-banner ${isVisible ? "animate" : ""}`}
+      ref={bannerRef}
+    >
       {/* Left Side */}
       <div className="banner-left">
         <h1 className="banner-logo">

@@ -13,7 +13,15 @@
   position: relative;
   height: 400px; /* Fixed height for banner */
   transform: translateY(50px);
-  transition: all 1s ease-in-out;
+  opacity: 0; /* Initially hidden */
+  transition: all 1s ease-in-out; /* Smooth transition for opacity and transform */
+}
+
+
+/* When the banner is visible, apply the animation */
+.advertisement-banner.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Left Side */
@@ -24,6 +32,16 @@
   justify-content: center;
   text-align: left;
   padding-right: 30px; /* Leave space between text and images */
+  opacity: 0; /* Start invisible */
+  transform: translateX(-50px); /* Start from the left */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+
+/* When the left side is visible, animate it */
+.advertisement-banner.animate .banner-left {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .banner-logo {
@@ -70,17 +88,27 @@
   background-color: #ceb7ff;
 }
 
+
 /* Right Side */
 .banner-right {
   flex: 1;
   display: flex;
   justify-content: flex-end;
   position: relative;
-  height: 100%; /* Ensure it stretches the full height of the banner */
+  height: 100%;
+  opacity: 0; /* Start invisible */
+  transform: translateX(50px); /* Start from the right */
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 
-/* Correcting width and height for stacked images */
+/* When the right side is visible, animate it */
+.advertisement-banner.animate .banner-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
 .stacked-image {
   position: absolute;
   width: 180px; /* Set appropriate width for stacked images */
@@ -88,21 +116,9 @@
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.stacked-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.stacked-image p {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 12px;
-  color: white;
-  margin: 0;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Start slightly below */
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 /* Image Overlapping Logic */
@@ -110,16 +126,71 @@
   z-index: 3;
   top: 0;
   left: 0;
+  transition-delay: 0.3s; /* Delay for animation */
 }
 
 .image-two {
   z-index: 2;
   top: 90px; /* Adjust overlap spacing */
   left: 150px; /* Slight shift to the right */
+  transition-delay: 0.6s; /* Delay for animation */
 }
 
 .image-three {
   z-index: 1;
   top: 180px; /* Adjust overlap spacing */
   left: 300px; /* Slight shift to the right */
+  transition-delay: 0.9s; /* Delay for animation */
 }
+
+/* When the images are in view, make them visible and slide up */
+.advertisement-banner.animate .stacked-image {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Text and Button Styles */
+.banner-logo {
+  font-size: 24px; /* Make Heavenly larger */
+  margin-bottom: 15px;
+}
+
+.banner-logo .highlight {
+  color: #ceb7ff;
+  font-size: 28px;
+}
+
+.banner-heading {
+  font-size: 36px; /* Increase heading size */
+  font-weight: 300; /* Remove bold */
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.banner-heading .highlight {
+  color: #ceb7ff;
+}
+
+.banner-subtext {
+  font-size: 10px; /* Small text */
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.banner-button {
+  background-color: white;
+  color: black;
+  padding: 10px 0px; /* Small button */
+  border: none;
+  width: 150px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.banner-button:hover {
+  background-color: #ceb7ff;
+}
+

@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./HeavenlyHelp.css";
 
 const HeavenlyHelp = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const componentRef = useRef(null);
+
+  // Intersection Observer setup
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the component is visible
+    );
+
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+
+    // Cleanup the observer on component unmount
+    return () => {
+      if (componentRef.current) {
+        observer.unobserve(componentRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="heavenly-help-container">
+    <div className={`heavenly-help-container ${isVisible ? "animate" : ""}`} ref={componentRef}>
       {/* Main Heading */}
       <h2 className="help-heading">See how Heavenly can help</h2>
 

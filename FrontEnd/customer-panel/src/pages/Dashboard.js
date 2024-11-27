@@ -109,8 +109,6 @@ const Dashboard = () => {
         </>
       )}
 
-        {/* Footer */}
-      <Footer />
     </div>
   );
 };
