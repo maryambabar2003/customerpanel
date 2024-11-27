@@ -1,0 +1,94 @@
+/* Navbar Container */
+.navbar-container {
+  position: fixed;
+  top: -80px; /* Initially hidden (off-screen) */
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10; /* Ensure it stays above other content */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: top 1.5s ease-in-out; /* Smooth slide-down animation */
+}
+
+.navbar-container.visible {
+  top: 0px; /* Slides into view */
+}
+
+/* Navbar Content */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center navbar content */
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* Center Section (Links) */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+  color: #333;
+  flex: 1; /* Allow it to center */
+  justify-content: center; /* Center the links */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-link:hover {
+  color: #750631;
+  border-bottom: 2px solid #750631; /* Underline on hover */
+}
+
+/* Right Section (Favorite, Language, Profile) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Spacing between items */
+}
+
+.favorites,
+.language {
+  display: flex;
+  align-items: center;
+  font-size: 16px; /* Match link text size */
+  color: #555;
+}
+
+.favorites:hover,
+.language:hover {
+  color: #750631;
+  border-bottom: 2px solid #750631; /* Underline hover effect for links */
+}
+
+.icon {
+  margin-right: 5px;
+  font-size: 18px; /* Make icons bigger */
+}
+
+/* Profile Section */
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 40px; /* Increase profile circle size */
+  height: 40px; /* Keep it proportional */
+  border-radius: 50%;
+  background-color: gray; /* Placeholder color */
+  margin-right: 10px; /* Add spacing between picture and name */
+}
+
+.profile-name {
+  font-size: 16px; /* Add the profile name */
+  color: #555;
+}

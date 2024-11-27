@@ -1,0 +1,76 @@
+/* Search Bar Container */
+.search-bar {
+  position: absolute; /* Position relative to the banner */
+  bottom: 10px; /* Halfway below the banner */
+  left: -47%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 60px; /* More rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 15px 20px;
+  width: 90%;
+  max-width: 1000px;
+  transform: translateY(20px); /* Start below position */
+  transition: all 0.7s ease-in-out; /* Smooth transition */
+}
+
+/* Individual Search Input Styling */
+.search-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.search-input label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.search-input input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Divider */
+.divider {
+  width: 2px; /* Thicker dividers */
+  background-color: #ccc;
+  height: 40px; /* Taller divider */
+  margin: 0 20px; /* Add spacing between inputs */
+}
+
+/* Search Button */
+.search-button {
+  background-color: #750631;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 60px; /* Larger circular button */
+  height: 60px; /* Keep circular shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow */
+}
+
+.search-button:hover {
+  background-color: #ff5f3f;
+  transform: scale(1.1); /* Slight enlargement on hover */
+}
+
+.search-icon {
+  font-size: 20px; /* Bigger search icon */
+}
+
+
+/* SearchBar Styling */

@@ -1,0 +1,94 @@
+/* Banner Container */
+.banner {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 40px;
+  background-color: #750631;
+  border-radius: 15px;
+  position: relative;
+  color: white;
+  text-align: center;
+  height: 400px; /* Adjust height for proper carousel-like appearance */
+  opacity: 0; /* Initially hidden */
+  transform: translateY(50px); /* Move down initially for animation */
+  transition: all 1s ease-in-out; /* Smooth transition for appearance */
+}
+
+.banner.visible {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Return to default position */
+}
+
+.banner h1 {
+  font-size: 42px;
+  line-height: 1.4;
+  margin-bottom: 60px; /* Space between text and images */
+}
+
+.highlight {
+  color: #ff5f3f;
+  font-family: "Georgia", serif;
+}
+
+/* Banner Images */
+.banner-images {
+  position: relative;
+  margin-top: 30px;
+  height: 100%; /* Allow proper image alignment */
+}
+
+.image {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  position: absolute;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.image-top-left {
+  top: 10px;
+  left: -30px;
+}
+
+.image-bottom-left {
+  bottom: -10px;
+  left: 50px;
+}
+
+.image-right {
+  top: 30px;
+  right: -40px;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Search Bar Integration */
+.search-bar-container {
+  position: absolute;
+  bottom: -40px; /* Halfway below the banner */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1000px;
+  z-index: 10;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Start below position */
+  transition: all 0.7s ease-in-out;
+}
+
+.search-bar-container.visible {
+  opacity: 1; /* Fade in */
+  transform: translateY(0); /* Slide into position */
+}

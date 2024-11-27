@@ -1,0 +1,28 @@
+/* App.css */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex: 1;
+}
+
+.content {
+  flex: 1;
+  margin-left: 250px; /* To offset side menu width */
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+}

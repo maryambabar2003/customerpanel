@@ -1,0 +1,22 @@
+.main-text {
+  transform: translateY(30px); /* Start from below */
+  transition: all 1s ease-in-out; /* Smooth transition for visibility */
+  font-weight: normal;
+  font-size: 30px; /* Adjust for larger text */
+  color: black; /* Ensure black text */
+  line-height: 1.8; /* Space out lines for readability */
+  text-align: center;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px; /* Restrict width for better alignment */
+  line-height: 1.6; /* Adjust for better readability */
+}
+
+.main-text.visible {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Slide into view */
+}
+
+.main-text .icon {
+  font-size: 20px; /* Slightly larger icons for emphasis */
+}
