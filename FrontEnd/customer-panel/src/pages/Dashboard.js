@@ -110,7 +110,7 @@ const Dashboard = () => {
       )}
 
         {/* Footer */}
-        <Footer />
+      <Footer />
     </div>
   );
 };

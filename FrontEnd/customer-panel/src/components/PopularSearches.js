@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import "./PopularSearches.css";
 
 const PopularSearches = () => {
@@ -12,6 +12,12 @@ const PopularSearches = () => {
     scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
   };
 
+  useEffect(() => {
+    // Adding the animation on component load
+    const container = document.querySelector('.popular-searches');
+    container.classList.add('slide-in');
+  }, []);
+
   return (
     <div className="popular-searches">
       <h2 className="section-title">Popular Search</h2>
@@ -20,6 +26,13 @@ const PopularSearches = () => {
           ←
         </button>
         <div className="search-scroll" ref={scrollRef}>
+          <div className="bubble">Jersey City</div>
+          <div className="bubble">Journal Square</div>
+          <div className="bubble">Hoboken</div>
+          <div className="bubble">Bryant Park</div>
+          <div className="bubble">Tribeca</div>
+          <div className="bubble">Dumbo</div>
+          <div className="bubble">Kumbo</div>
           <div className="bubble">Jersey City</div>
           <div className="bubble">Journal Square</div>
           <div className="bubble">Hoboken</div>

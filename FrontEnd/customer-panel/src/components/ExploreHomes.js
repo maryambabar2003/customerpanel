@@ -1,16 +1,50 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./ExploreHomes.css";
 
 const ExploreHomes = () => {
   const scrollRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
+  // Function to handle left scrolling
   const scrollLeft = () => {
-    scrollRef.current.scrollBy({ left: -400, behavior: "smooth" }); // Scroll by two grid items (adjust as needed)
+    scrollRef.current.scrollBy({
+      left: -scrollRef.current.offsetWidth / 2, // Scroll by half the container width (two grid items)
+      behavior: "smooth",
+    });
   };
 
+  // Function to handle right scrolling
   const scrollRight = () => {
-    scrollRef.current.scrollBy({ left: 400, behavior: "smooth" }); // Scroll by two grid items (adjust as needed)
+    scrollRef.current.scrollBy({
+      left: scrollRef.current.offsetWidth / 2, // Scroll by half the container width (two grid items)
+      behavior: "smooth",
+    });
   };
+
+  // Handling intersection observer for visibility animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true); // Trigger animation when in view
+        }
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the component is visible
+      }
+    );
+
+    const element = document.querySelector(".explore-homes-container");
+    if (element) {
+      observer.observe(element); // Observe the container element
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element); // Cleanup observer
+      }
+    };
+  }, []);
 
   const homes = [
     { id: 1, location: "Philadelphia, PA", img: "/assets/image1.webp" },
@@ -22,7 +56,7 @@ const ExploreHomes = () => {
   ];
 
   return (
-    <div className="explore-homes-container">
+    <div className={`explore-homes-container ${isVisible ? "visible" : ""}`}>
       {/* Header */}
       <div className="explore-heading">
         <h2 className="explore-title">Explore homes on Heavenly</h2>

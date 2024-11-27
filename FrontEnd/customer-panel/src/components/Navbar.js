@@ -4,28 +4,29 @@ import "./Navbar.css";
 
 const Navbar = () => {
   return (
-    <div className="navbar-container visible">
+    <div className="navbar-container">
       <div className="navbar">
-        {/* Center Section (Links) */}
-        <div className="nav-links">
-          <a href="#" className="nav-link">Buy</a>
-          <span>|</span>
-          <a href="#" className="nav-link">Rent</a>
-          <span>|</span>
-          <a href="#" className="nav-link">Sell</a>
+        {/* Left section (empty) */}
+        <div className="navbar-left"></div>
+
+        {/* Middle section (nav links) */}
+        <div className="navbar-center">
+          <div className="nav-links">
+            <a href="#" className="nav-link">Buy</a>
+            <a href="#" className="nav-link">Rent</a>
+            <a href="#" className="nav-link">Sell</a>
+          </div>
         </div>
 
-        {/* Right Section (Favorite, Language, Profile) */}
-        <div className="nav-right">
+        {/* Right section (favorites, language, profile) */}
+        <div className="navbar-right">
           <a href="#" className="favorites nav-link">
             <FaHeart className="icon" /> Favorite
           </a>
           <a href="#" className="language nav-link">
             <FaGlobe className="icon" /> EN
           </a>
-          <div className="profile">
-            <div className="profile-pic"></div>
-          </div>
+          <div className="profile-pic"></div>
         </div>
       </div>
     </div>

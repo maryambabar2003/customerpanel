@@ -2,49 +2,46 @@
 .search-bar {
   position: absolute; /* Position relative to the banner */
   bottom: 10px; /* Halfway below the banner */
-  left: -47%;
+  left: -51%;
   transform: translateX(-50%);
   display: flex;
-  align-items: center;
+  flex-direction: row; /* Keep the button on top of the div boxes */
+  align-items: left;
   background: white;
   border-radius: 60px; /* More rounded corners */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   padding: 15px 20px;
-  width: 90%;
-  max-width: 1000px;
+  width: 100%; /* Made it narrower */
+  max-width: 1000px; /* Reduced max width */
+  height: 70px; /* Reduced height */
   transform: translateY(20px); /* Start below position */
   transition: all 0.7s ease-in-out; /* Smooth transition */
-}
+}/* Search Bar Container */
 
-/* Individual Search Input Styling */
-.search-input {
+/* Search Box Container */
+.search-box-container {
   display: flex;
-  flex-direction: column;
   flex: 1;
+  justify-content: space-between; /* Add equal spacing between the search boxes */
+  padding-right: 70px; /* Space on the right for the search button */
 }
 
-.search-input label {
-  font-size: 14px;
-  font-weight: bold;
+/* Search Box */
+.search-box {
+  flex: 1; /* Equal size for each box */
+  text-align: left; 
+  padding: 10px;
+  font-size: 16px;
   color: #555;
-  margin-bottom: 5px;
+  margin: 0 5px; /* Add spacing between boxes */
+  border-right: 1px solid #ccc; /* Divider between boxes */
+  font-weight: 500; /* Slightly bold text */
+
 }
 
-.search-input input {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  outline: none;
-  font-size: 14px;
-}
-
-/* Divider */
-.divider {
-  width: 2px; /* Thicker dividers */
-  background-color: #ccc;
-  height: 40px; /* Taller divider */
-  margin: 0 20px; /* Add spacing between inputs */
+/* Remove the right border from the last box */
+.search-box:last-child {
+  border-right: none;
 }
 
 /* Search Button */
@@ -53,24 +50,84 @@
   border: none;
   color: white;
   border-radius: 50%;
-  width: 60px; /* Larger circular button */
-  height: 60px; /* Keep circular shape */
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-left: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow */
-}
-
-.search-button:hover {
-  background-color: #ff5f3f;
-  transform: scale(1.1); /* Slight enlargement on hover */
+  position: absolute;
+  right: 10px; /* Align button to the right */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .search-icon {
-  font-size: 20px; /* Bigger search icon */
+  width: 24px;
+  height: 24px;
+}
+
+/* Individual Search Box Classes */
+.search-box .search-input {
+  width: 88%;
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+  border: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1.5px solid #ccc; /* Default bottom border */
+  outline: none;
+  transition: border-bottom 0.3s ease; /* Smooth transition for hover effect */
 }
 
 
-/* SearchBar Styling */
+.search-box input::placeholder {
+  color: #aaa;
+}
+
+
+/* Dropdown Styles */
+.dropdown {
+  position: absolute;
+  top: 100%; /* Position it below the input */
+  left: 4%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  width:300px;
+  overflow-y: auto;
+  transition: all 0.3s ease-out;
+  z-index: 30;
+  display: none; /* Initially hidden */
+}
+
+.search-box .dropdown {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.location-icon {
+  margin-right: 10px;
+}
+
+/* Horizontal Divider */
+hr {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}

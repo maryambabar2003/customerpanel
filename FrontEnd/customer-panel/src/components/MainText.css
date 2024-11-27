@@ -1,22 +1,35 @@
 .main-text {
   transform: translateY(30px); /* Start from below */
+  opacity: 0; /* Initially not visible */
   transition: all 1s ease-in-out; /* Smooth transition for visibility */
-  font-weight: normal;
-  font-size: 30px; /* Adjust for larger text */
+  font-weight: bold; /* Make text bold */
+  font-size: 36px; /* Increase text size */
   color: black; /* Ensure black text */
-  line-height: 1.8; /* Space out lines for readability */
+  line-height: 1.4; /* Space out lines for readability */
   text-align: center;
-  margin: 20px auto;
+  margin: 90px auto; /* Add top and bottom spacing */
   width: 80%;
   max-width: 800px; /* Restrict width for better alignment */
-  line-height: 1.6; /* Adjust for better readability */
 }
 
 .main-text.visible {
   opacity: 1; /* Fully visible */
   transform: translateY(0); /* Slide into view */
+  animation: slide-in 1s ease-out forwards; /* Apply slide-in animation */
 }
 
 .main-text .icon {
-  font-size: 20px; /* Slightly larger icons for emphasis */
+  font-size: 24px; /* Slightly larger icons for emphasis */
+}
+
+/* Optional: animation for when scrolling into view */
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Start from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

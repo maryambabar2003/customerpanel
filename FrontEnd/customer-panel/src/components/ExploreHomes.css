@@ -3,6 +3,14 @@
   width: 90%;
   max-width: 1200px;
   margin: 50px auto;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(30px); /* Slide from bottom */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
+}
+
+.explore-homes-container.visible {
+  opacity: 1;
+  transform: translateY(0); /* Slide into view */
 }
 
 /* Header styling */
@@ -100,6 +108,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease; /* Zoom effect */
+}
+
+.home-item:hover .home-img {
+  transform: scale(1.1); /* Zoom image */
 }
 
 .home-overlay {
@@ -147,7 +160,6 @@
 
 /* Hover effect */
 .home-item:hover {
-  transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
 }
