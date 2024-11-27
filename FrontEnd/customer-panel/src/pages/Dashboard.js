@@ -6,6 +6,8 @@ import MainText from "../components/MainText";
 import ExploreHomes from "../components/ExploreHomes"; // Import the ExploreHomes component
 import HeavenlyHelp from "../components/HeavenlyHelp"; // Import the HeavenlyHelp component
 import AdvertisementBanner from "../components/AdvertisementBanner";
+import Footer from "../components/Footer"; // Adjust the path as needed
+
 
 import "./Dashboard.css";
 
@@ -106,6 +108,9 @@ const Dashboard = () => {
           <br />
         </>
       )}
+
+        {/* Footer */}
+        <Footer />
     </div>
   );
 };
