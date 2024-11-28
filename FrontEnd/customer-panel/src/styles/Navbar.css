@@ -48,7 +48,7 @@
   text-decoration: none;
   color: #333;
   position: relative;
-  font-size: 16px;
+  font-size: 17px;
   padding-bottom: 5px;
 }
 
@@ -84,4 +84,24 @@
 
 .profile-pic:hover {
   transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar-center {
+    display: none; /* Hide middle section */
+  }
+
+  .navbar-right .favorites,
+  .navbar-right .language {
+    display: none; /* Hide favorites and language links */
+  }
+
+  .navbar-left {
+    flex: 1; /* Allow left section to take available space */
+  }
+
+  .navbar-right {
+    justify-content: flex-end; /* Keep profile pic on the right */
+  }
 }

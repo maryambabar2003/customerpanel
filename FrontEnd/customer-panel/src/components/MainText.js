@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./MainText.css";
+import "../styles/MainText.css";
 
 const MainText = () => {
   const [isVisible, setIsVisible] = useState(false);

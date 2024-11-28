@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./HeavenlyHelp.css";
+import "../styles/HeavenlyHelp.css";
 
 const HeavenlyHelp = () => {
   const [isVisible, setIsVisible] = useState(false);

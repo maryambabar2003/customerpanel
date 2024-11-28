@@ -1,0 +1,440 @@
+/* Search Bar Container */
+.search-bar {
+  position: absolute; /* Position relative to the banner */
+  bottom: 10px; /* Halfway below the banner */
+  left: -51%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row; /* Keep the button on top of the div boxes */
+  align-items: left;
+  background: white;
+  border-radius: 60px; /* More rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 15px 20px;
+  width: 100%; /* Made it narrower */
+  max-width: 1000px; /* Reduced max width */
+  height: 70px; /* Reduced height */
+  transform: translateY(20px); /* Start below position */
+  transition: all 0.7s ease-in-out; /* Smooth transition */
+}/* Search Bar Container */
+
+/* Search Box Container */
+.search-box-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-between; /* Add equal spacing between the search boxes */
+  padding-right: 70px; /* Space on the right for the search button */
+}
+
+/* Search Box */
+.search-box {
+  flex: 1; /* Equal size for each box */
+  text-align: left; 
+  padding: 10px;
+  font-size: 16px;
+  color: #555;
+  margin: 0 5px; /* Add spacing between boxes */
+  border-right: 1px solid #ccc; /* Divider between boxes */
+  font-weight: 500; /* Slightly bold text */
+
+}
+
+/* Remove the right border from the last box */
+.search-box:last-child {
+  border-right: none;
+}
+
+/* Search Button */
+.search-button {
+  background-color: #750631;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  right: 10px; /* Align button to the right */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Individual Search Box Classes */
+.search-box .search-input {
+  width: 88%;
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+  border: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1.5px solid #ccc; /* Default bottom border */
+  outline: none;
+  transition: border-bottom 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Add Placeholder Color */
+.search-input::placeholder {
+  color: #aaa; /* Grey placeholder text */
+}
+
+/* Add Input Text Color */
+.search-input {
+  color: #333; /* Dark text when the user types */
+}
+
+
+.search-box input::placeholder {
+  color: #aaa;
+}
+
+.search-heading input{
+  color:#555;
+}
+/* Dropdown Styles */
+.location-dropdown {
+  position: absolute;
+  top: 100%; /* Position it below the input */
+  left: 4%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  width:300px;
+  overflow-y: auto;
+  transition: all 0.3s ease-out;
+  z-index: 30;
+  display: none; /* Initially hidden */
+}
+
+.search-box .location-dropdown {
+  display: block;
+}
+
+.location-dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.location-dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.location-icon {
+  margin-right: 10px;
+}
+
+/* Horizontal Divider */
+hr {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+/* Price Dropdown Styles */
+.price-dropdown {
+  position: absolute;
+  top: 100%; /* Position it below the input */
+  left: 26%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px; /* Adjusted padding */
+  z-index: 30;
+  animation: slideDown 0.3s ease-out; /* Animation for dropdown */
+  width: 300px; /* Adjust width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.price-field {
+  width: 40%; /* Set the width to 40% to make it shorter */
+  display: flex;
+  flex-direction: column;
+}
+
+.price-field input {
+  width: 70%; /* Ensure the input fills the width of the field */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+
+.price-field label {
+  margin-bottom:15px;
+}
+
+.price-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.price-label {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  width: 48%; /* Adjust width of labels */
+}
+
+.price-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  width:120%;
+  margin-left:20px;
+}
+
+
+.confirm-text {
+  text-align: center;
+  color: #750631; /* Text color */
+  cursor: pointer;
+  transition: color 0.3s;
+  margin-top: 10px;
+}
+
+.confirm-text:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+
+
+/* Scroll Buttons */
+.bed-controls-scroll-button {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.bed-controls-scroll-button.left {
+  margin-right: 10px;
+}
+
+.bed-controls-scroll-button.right {
+  margin-left: 10px;
+}
+
+
+.bed-controls-scroll-button:hover {
+  background-color: #750631;
+  color: white;
+  border-color: #750631;
+  transition: all 0.3s ease;
+}
+
+.bathroom-controls-scroll-button:hover {
+  background-color: #750631;
+  color: white;
+  border-color: #750631;
+  transition: all 0.3s ease;
+}
+
+
+.bathroom-controls-scroll-button {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.bathroom-controls-scroll-button.left {
+  margin-right: 10px;
+}
+
+.bathroom-controls-scroll-button.right {
+  margin-left: 10px;
+}
+
+/* Bed Dropdown Styles */
+.bed-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 48%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 30;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bed-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.Bedroom
+{
+  margin-top:10px;
+}
+
+.Bathroom
+{
+  margin-top:10px;
+}
+
+.bed-controls {
+  display: flex;
+  align-items: center;
+}
+
+.bed-controls button {
+  border-radius: 50%;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.bed-dropdown hr {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+/* Property Type Dropdown */
+.property-type-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 71%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 30;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Styling for Checkboxes */
+.property-type-dropdown label {
+  font-size: 14px; /* Non-bold text */
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+
+.property-type-input {
+  width: 88%;
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+  border: none;
+  border-bottom: 1.5px solid #ccc;
+}
+
+
+.property-type-dropdown input {
+  transform: scale(1.3); /* Increase the size of checkboxes */
+  margin-right: 10px;
+}
+
+.property-type-dropdown hr {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+/* Dropdown Scroll Effect */
+@keyframes dropdown-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10%); /* Start above the input field */
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Slide to its original position */
+    visibility: visible;
+  }
+}
+
+@keyframes dropdown-slide-up {
+  from {
+    opacity: 1;
+    transform: translateY(0); /* Stay at the original position */
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%); /* Slide upwards */
+    visibility: hidden;
+  }
+}
+
+/* Dropdown Styles */
+.location-dropdown,
+.price-dropdown,
+.bed-dropdown,
+.property-type-dropdown {
+  animation: dropdown-slide-down 0.3s ease-out forwards; /* Slide down animation on open */
+}
+
+.location-dropdown.hide,
+.price-dropdown.hide,
+.bed-dropdown.hide,
+.property-type-dropdown.hide {
+  animation: dropdown-slide-up 0.3s ease-out forwards; /* Slide up animation on close */
+}
+
+.location-dropdown.show,
+.price-dropdown.show,
+.bed-dropdown.show,
+.property-type-dropdown.show {
+  display: block;
+  animation: dropdown-slide-down 0.3s ease-out forwards; /* Show dropdown */
+}
+
+
+
+.location-dropdown.show,
+.price-dropdown.show,
+.bed-dropdown.show,
+.property-type-dropdown.show {
+  display: block;
+}

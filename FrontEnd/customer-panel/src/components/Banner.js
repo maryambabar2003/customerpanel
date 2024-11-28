@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
-import "./Banner.css";
+import "../styles/Banner.css";
 
 const Banner = () => {
   const [showBanner, setShowBanner] = useState(false); // Control banner visibility

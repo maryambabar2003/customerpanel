@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import "./ExploreHomes.css";
+import "../styles/ExploreHomes.css";
 
 const ExploreHomes = () => {
   const scrollRef = useRef(null);
@@ -8,7 +8,7 @@ const ExploreHomes = () => {
   // Function to handle left scrolling
   const scrollLeft = () => {
     scrollRef.current.scrollBy({
-      left: -scrollRef.current.offsetWidth / 2, // Scroll by half the container width (two grid items)
+      left: -scrollRef.current.offsetWidth / 2,
       behavior: "smooth",
     });
   };
@@ -16,32 +16,31 @@ const ExploreHomes = () => {
   // Function to handle right scrolling
   const scrollRight = () => {
     scrollRef.current.scrollBy({
-      left: scrollRef.current.offsetWidth / 2, // Scroll by half the container width (two grid items)
+      left: scrollRef.current.offsetWidth / 2,
       behavior: "smooth",
     });
   };
 
-  // Handling intersection observer for visibility animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true); // Trigger animation when in view
+          setIsVisible(true);
         }
       },
       {
-        threshold: 0.5, // Trigger when 50% of the component is visible
+        threshold: 0.5,
       }
     );
 
     const element = document.querySelector(".explore-homes-container");
     if (element) {
-      observer.observe(element); // Observe the container element
+      observer.observe(element);
     }
 
     return () => {
       if (element) {
-        observer.unobserve(element); // Cleanup observer
+        observer.unobserve(element);
       }
     };
   }, []);
@@ -57,33 +56,31 @@ const ExploreHomes = () => {
 
   return (
     <div className={`explore-homes-container ${isVisible ? "visible" : ""}`}>
-      {/* Header */}
       <div className="explore-heading">
         <h2 className="explore-title">Explore homes on Heavenly</h2>
       </div>
 
-      {/* Homes Grid with Arrows */}
-      <div className="homes-scroll-container">
-        <button className="scroll-button left" onClick={scrollLeft}>
+      <div className="explore-homes-scroll-container">
+        <button className="explore-scroll-button left" onClick={scrollLeft}>
           ←
         </button>
-        <div className="homes-grid-container" ref={scrollRef}>
-          <div className="homes-grid">
+        <div className="explore-homes-grid-container" ref={scrollRef}>
+          <div className="explore-homes-grid">
             {homes.map((home) => (
-              <div key={home.id} className="home-item">
-                <img src={home.img} alt={home.location} className="home-img" />
-                <div className="home-overlay">
-                  <p className="home-location">
-                    <span className="location-icon">📍</span>
+              <div key={home.id} className="explore-home-item">
+                <img src={home.img} alt={home.location} className="explore-home-img" />
+                <div className="explore-home-overlay">
+                  <p className="explore-home-location">
+                    <span className="explore-location-icon">📍</span>
                     {home.location}
                   </p>
-                  <button className="arrow-circle">›</button>
+                  <button className="explore-arrow-circle">›</button>
                 </div>
               </div>
             ))}
           </div>
         </div>
-        <button className="scroll-button right" onClick={scrollRight}>
+        <button className="explore-scroll-button right" onClick={scrollRight}>
           →
         </button>
       </div>

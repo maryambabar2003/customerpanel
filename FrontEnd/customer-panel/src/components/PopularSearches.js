@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import "./PopularSearches.css";
+import "../styles/PopularSearches.css";
 
 const PopularSearches = () => {
   const scrollRef = useRef(null);

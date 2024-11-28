@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./AdvertisementBanner.css";
+import "../styles/AdvertisementBanner.css";
 
 const AdvertisementBanner = () => {
   const [isVisible, setIsVisible] = useState(false);

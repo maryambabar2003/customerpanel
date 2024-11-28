@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { FaHeart, FaGlobe } from "react-icons/fa";
-import "./Navbar.css";
+import "../styles/Navbar.css";
 
 const Navbar = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Fetch user data from backend API
+    axios.get("http://localhost:5000/api/users/profile")  // Replace with your backend URL
+      .then(response => {
+        setUser(response.data);  // Store user data in state
+      })
+      .catch(error => {
+        console.error("Error fetching user profile:", error);
+      });
+  }, []);
+
+  const handleProfileClick = () => {
+    // Handle the navigation to the profile page
+    window.location.href = "/profile";  // You can use react-router for a single-page application
+  };
+
   return (
     <div className="navbar-container">
       <div className="navbar">
@@ -26,7 +45,13 @@ const Navbar = () => {
           <a href="#" className="language nav-link">
             <FaGlobe className="icon" /> EN
           </a>
-          <div className="profile-pic"></div>
+          <div className="profile-pic" onClick={handleProfileClick}>
+            {user && user.profilePicture ? (
+              <img src={user.profilePicture} alt="Profile" className="profile-image" />
+            ) : (
+              <div className="profile-placeholder">User</div>
+            )}
+          </div>
         </div>
       </div>
     </div>
