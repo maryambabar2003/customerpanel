@@ -58,9 +58,26 @@
   cursor: pointer;
   position: absolute;
   right: 10px; /* Align button to the right */
-  top: 50%;
-  transform: translateY(-50%);
+  top: 10%;
 }
+
+/* Search Button Hover Effect */
+.search-button:hover {
+  background-color: #a30744; /* Darker shade for hover */
+  transform: scale(1.1); /* Zoom effect */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Scroll Button Hover Effect */
+.bed-controls-scroll-button:hover,
+.bathroom-controls-scroll-button:hover {
+  background-color: #a30744; /* Darker shade for hover */
+  color: white;
+  border-color: #a30744;
+  transform: scale(1.1); /* Zoom effect */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
 
 .search-icon {
   width: 24px;

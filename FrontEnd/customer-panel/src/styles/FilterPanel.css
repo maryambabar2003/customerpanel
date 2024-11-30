@@ -1,0 +1,509 @@
+@keyframes slideInFromRight {
+    from {
+      transform: translateX(5%); /* Start just off the screen (less aggressive) */
+      opacity: 0;
+    }
+    to {
+      transform: translateX(-0%); /* End at the centered position */
+      opacity: 1; /* Fade in as it slides */
+    }
+  }
+  
+
+/* Search Bar Container */
+.filter-panel {
+    position: absolute;
+    bottom: 10px;
+    top: 100px;
+    left: 13%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row; /* Keep the button on top of the div boxes */
+    align-items: flex-start; /* Align to the top of the container */
+    background: white;
+    border-radius: 60px; /* More rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 15px 20px;
+    width: 100%;
+    max-width: 1240px;
+    height: 50px;
+    transform: translateY(20px);
+    transition: all 0.7s ease-in-out; /* Smooth transition */
+    animation: slideInFromRight 1.3s ease-out forwards; /* Slower and smoother slide */
+
+}
+
+/* Search Box Container */
+.filter-box-container {
+    display: flex;
+    width: 80%;
+    margin-left:200px;
+}
+
+/* Search Box */
+.filter-box {
+    padding: 10px;
+    font-size: 16px;
+    color: #555;
+    font-weight: 500; /* Slightly bold text */
+    position: relative; /* Ensure dropdowns are positioned correctly */
+    text-align: left;
+}
+
+/* Advanced Filters Button */
+.filter-box.advanced-filters-box {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0; /* Keep it fixed on the left */
+    top: 1%;
+}
+
+/* Advanced Filters Button Styling */
+.filter-button {
+    background-color: #750631;
+    border: none;
+    color: white;
+    border-radius: 100px;
+    width: 200px; /* Increased width to accommodate the icon and text */
+    height: 50px; /* Same height as the search button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position:absolute;
+    top:70%;
+}
+
+.filter-button:hover {
+    background-color: #a30744; /* Darker shade for hover */
+    transform: scale(1.1); /* Zoom effect */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Input Fields Styled as Bubbles */
+.filter-input {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 30px; /* Bubble form */
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+.filter-input:focus {
+    outline: none;
+    border-color: #750631;
+}
+
+/* Specific Input Styles */
+.filter-location-input,
+.filter-price-input,
+.filter-bed-input,
+.filter-buy-sell-input,
+.filter-property-type-input {
+    width: 100%; /* Ensure these inputs fill their container */
+}
+
+/* Input Sizes */
+.filter-location-input {
+    width: 300px; /* Larger than other fields */
+}
+
+.filter-price-input,
+.filter-bed-input {
+    width: 120px; /* Smaller width for Price Range, Beds & Baths, and Property Type */
+}
+
+.filter-buy-sell-input {
+    width: 70px; /* Small width for Buy/Sell */
+}
+
+.filter-property-type-input {
+    width: 100px; /* Smaller width for Price Range, Beds & Baths, and Property Type */
+}
+
+/* Search Button with Icon */
+.filter-search-button {
+    background-color: #750631;
+    border: none;
+    color: white;
+    border-radius: 100px;
+    width: 100px; /* Smaller size */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    top: 22%;
+}
+
+.filter-search-button .search-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.filter-search-button:hover {
+    background-color: #a30744; /* Darker shade for hover */
+    transform: scale(1.1); /* Zoom effect */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+
+/*drop downs*/
+.filter-location-box {
+    position: relative;
+  }
+  
+  .filter-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    z-index: 100;
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    width:300px;
+    overflow-y: auto;
+    transition: all 0.3s ease-out;
+    display: none; /* Initially hidden */
+  }
+  
+  .filter-location-dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+  }
+  
+  .filter-location-dropdown-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .location-icon {
+    margin-right: 8px;
+  }
+  
+  /* Horizontal Divider */
+
+  hr {
+    margin: 0;
+    border: 0;
+    border-top: 1px solid #eee;
+  }
+
+  /* Price Dropdown Styles */
+.filter-price-dropdown {
+    position: absolute;
+    top: 100%; /* Position it below the input */
+    left: 0%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px; /* Adjusted padding */
+    z-index: 30;
+    animation: slideDown 0.3s ease-out; /* Animation for dropdown */
+    width: 300px; /* Adjust width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter-price-field {
+    width: 40%; /* Set the width to 40% to make it shorter */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-price-field input {
+    width: 70%; /* Ensure the input fills the width of the field */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  
+  .filter-price-field label {
+    margin-bottom:15px;
+  }
+  
+  .filter-price-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .filter-price-label {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    width: 48%; /* Adjust width of labels */
+  }
+  
+  .filter-price-inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    width:120%;
+    margin-left:20px;
+  }
+
+  
+.filter-confirm-text {
+    text-align: center;
+    color: #750631; /* Text color */
+    cursor: pointer;
+    transition: color 0.3s;
+    margin-top: 10px;
+  }
+  
+  .filter-confirm-text:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+
+  
+/* Scroll Buttons */
+.filter-bed-controls-scroll-button {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 70;
+  }
+  
+  .filter-bed-controls-scroll-button.left {
+    margin-right: 10px;
+  }
+  
+  .filter-bed-controls-scroll-button.right {
+    margin-left: 10px;
+  }
+  
+  
+  .filter-bed-controls-scroll-button:hover {
+    background-color: #750631;
+    color: white;
+    border-color: #750631;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-bathroom-controls-scroll-button:hover {
+    background-color: #750631;
+    color: white;
+    border-color: #750631;
+    transition: all 0.3s ease;
+  }
+  
+  
+  .filter-bathroom-controls-scroll-button {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  
+  .filter-bathroom-controls-scroll-button.left {
+    margin-right: 10px;
+  }
+  
+  .filter-bathroom-controls-scroll-button.right {
+    margin-left: 10px;
+  }
+  
+  /* Bed Dropdown Styles */
+  .filter-bed-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 30;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter-bed-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .Bedroom
+  {
+    margin-top:10px;
+  }
+  
+  .Bathroom
+  {
+    margin-top:10px;
+  }
+  
+  .filter-bed-controls {
+    display: flex;
+    align-items: center;
+  }
+  
+  .filter-bed-controls button {
+    border-radius: 50%;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .filter-bed-dropdown hr {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+  }
+
+  /* Property Type Dropdown */
+  .filter-property-type-dropdown {
+    position: absolute;
+    top: 100%; /* Adjust dropdown to be below the input */
+    left: 0%;
+    right: 0%;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 60;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+  
+  /* Styling for Checkboxes */
+ 
+/* Styling for Property Type Checkboxes */
+.filter-property-type-dropdown label {
+    font-size: 14px; /* Same font size for uniformity */
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Pointer on hover for better UX */
+}
+  
+  .filter-property-type-dropdown hr {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+  }
+
+
+   /* Property Type Dropdown */
+.filter-buy-sell-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 70%;
+    right: 0%;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 60;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* Styling for Checkboxes */
+  .filter-buy-sell-dropdown label {
+    font-size: 14px; /* Same font size as the property type */
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;  /* Pointer on hover for better UX */
+}
+  
+  .filter-buy-sell-dropdown hr {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+  }
+  
+  /* Dropdown Scroll Effect */
+  @keyframes dropdown-slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-10%); /* Start above the input field */
+      visibility: hidden;
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Slide to its original position */
+      visibility: visible;
+    }
+  }
+  
+  @keyframes dropdown-slide-up {
+    from {
+      opacity: 1;
+      transform: translateY(0); /* Stay at the original position */
+      visibility: visible;
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-100%); /* Slide upwards */
+      visibility: hidden;
+    }
+  }
+  
+  /* Dropdown Styles */
+  .filter-location-dropdown,
+  .filter-price-dropdown,
+  .filter-bed-dropdown,
+  .filter-buy-sell-dropdown,
+  .filter-property-type-dropdown {
+    animation: dropdown-slide-down 0.3s ease-out forwards; /* Slide down animation on open */
+  }
+  
+  .filter-location-dropdown.hide,
+  .filter-price-dropdown.hide,
+  .filter-bed-dropdown.hide,
+  .filter-buy-sell-dropdown,
+  .filter-property-type-dropdown.hide {
+    animation: dropdown-slide-up 0.3s ease-out forwards; /* Slide up animation on close */
+  }
+  
+  .filter-location-dropdown.show,
+  .filter-price-dropdown.show,
+  .filter-bed-dropdown.show,
+  .filter-buy-sell-dropdown,
+  .filter-property-type-dropdown.show {
+    display: block;
+    animation: dropdown-slide-down 0.3s ease-out forwards; /* Show dropdown */
+  }
+  

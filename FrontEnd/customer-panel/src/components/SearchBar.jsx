@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";  // Import the useNavigate hook
+
 import "../styles/SearchBar.css";
 import { FaMapMarkerAlt } from 'react-icons/fa';
 
@@ -68,6 +70,13 @@ const SearchBar = () => {
       return;
     }
     setShowPriceDropdown(false);
+  };
+
+  const navigate = useNavigate();  // Initialize the navigate function
+  
+  const handleSearch = () => {
+    // Navigate to the SearchPage
+    navigate("/search");  // Replace "/search" with your actual route
   };
 
   // Handle bedroom and bathroom changes
@@ -325,26 +334,25 @@ const SearchBar = () => {
         </div>
       </div>
 
-      <button className="search-button">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="none"
-          stroke="white"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="search-icon"
-          viewBox="0 0 24 24"
-        >
-          <circle cx="11" cy="11" r="8" />
-          <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </svg>
-      </button>
+      <button className="search-button" onClick={handleSearch}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="search-icon"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+    </button>
     </div>
   );
 };
 
 export default SearchBar;
-
